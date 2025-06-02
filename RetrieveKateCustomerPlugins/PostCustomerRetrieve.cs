@@ -48,7 +48,6 @@ namespace RetrieveKateCustomerPlugins
 
             var hasAccess = SecurityHelper.UserIsInTeam(service, context.InitiatingUserId, teamName);
 
-            // If the user is not in the team, hide the description
             if (!hasAccess && entity.Attributes.Contains("lea_description"))
             {
                 entity["lea_description"] = null;

@@ -21,8 +21,6 @@ namespace Task1
                 var companyId = target.Id;
 
                 var companyName = target.GetAttributeValue<string>("lea_name");
-               // if (string.IsNullOrWhiteSpace(companyName))
-                   // return;
 
                 var query = new QueryExpression("lea_katecustomer")
                 {

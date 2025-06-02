@@ -30,6 +30,10 @@ namespace RetrieveKateCustomerPlugins
             if (context.MessageName != "RetrieveMultiple" || context.Stage != (int)SdkMessageProcessingStepStage.PostOperation)
                 return;
 
+            var query = context.InputParameters["Query"] as QueryExpression;
+            if (query == null || query.EntityName != "lea_katecustomer")
+                return;
+
             if (!context.OutputParameters.Contains("BusinessEntityCollection") || !(context.OutputParameters["BusinessEntityCollection"] is EntityCollection customers))
             {
                 tracing.Trace("Output 'BusinessEntityCollection' not found or is invalid.");
